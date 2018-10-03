@@ -1,0 +1,47 @@
+﻿@model IEnumerable<MvcEfCore.Models.Team>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.City)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Province)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Country)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.City)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Province)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Country)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.TeamName">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.TeamName">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.TeamName">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
